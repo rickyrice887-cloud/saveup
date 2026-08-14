@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#12b8a6"
+  >
+
+  <title>SaveUp</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+
+<body>
+
+  <main class="app">
+
+    <!-- =================================
+         HEADER
+    ================================== -->
+
+    <header>
+
+      <div class="logo">
+
+        <div class="logo-icon">
+          $
+        </div>
+
+        <div>
+
+          <h1>SaveUp</h1>
+
+          <p>
+            Save smarter. Reach your goals.
+          </p>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =================================
+         HOME
+    ================================== -->
+
+    <section
+      id="homeScreen"
+      class="app-screen"
+    >
+
+      <!-- TOTAL SAVED -->
+
+      <section class="total-card">
+
+        <span>
+          Total Saved
+        </span>
+
+        <h2 id="totalSaved">
+          $0.00
+        </h2>
+
+        <p id="dashboardMessage">
+          Create your first goal and start saving.
+        </p>
+
+      </section>
+
+
+      <!-- OVERALL PROGRESS -->
+
+      <section class="dashboard-progress-card">
+
+        <div class="dashboard-progress-top">
+
+          <div>
+
+            <span>
+              Overall Progress
+            </span>
+
+            <h3 id="overallProgressPercent">
+              0%
+            </h3>
+
+          </div>
+
+
+          <div class="dashboard-progress-circle">
+
+            <span id="overallProgressCircle">
+              0%
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="dashboard-progress-bar">
+
+          <div
+            id="overallProgressBar"
+            class="dashboard-progress-fill"
+          ></div>
+
+        </div>
+
+
+        <p id="overallProgressText">
+          Create a goal to start tracking progress.
+        </p>
+
+      </section>
+
+
+      <!-- STATS -->
+
+      <section class="stats-grid">
+
+        <div class="stat-card">
+
+          <span class="stat-icon">
+            🎯
+          </span>
+
+          <div>
+
+            <small>
+              Goals
+            </small>
+
+            <strong id="totalGoals">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <span class="stat-icon">
+            🏆
+          </span>
+
+          <div>
+
+            <small>
+              Completed
+            </small>
+
+            <strong id="completedGoals">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <span class="stat-icon">
+            💵
+          </span>
+
+          <div>
+
+            <small>
+              Contributed
+            </small>
+
+            <strong id="totalContributed">
+              $0.00
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <span class="stat-icon">
+            📈
+          </span>
+
+          <div>
+
+            <small>
+              Best Progress
+            </small>
+
+            <strong id="bestProgress">
+              0%
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ACTION BUTTONS -->
+
+      <section class="actions">
+
+        <button id="addMoneyBtn">
+          + Add Money
+        </button>
+
+        <button
+          id="takeMoneyBtn"
+          class="secondary"
+        >
+          − Take Money
+        </button>
+
+      </section>
+
+
+      <!-- GOALS -->
+
+      <section class="goals-section">
+
+        <div class="section-title">
+
+          <h2>
+            Your Goals
+          </h2>
+
+          <button id="newGoalBtn">
+            + Goal
+          </button>
+
+        </div>
+
+
+        <div id="goals">
+
+          <div class="empty">
+
+            <h3>
+              No goals yet
+            </h3>
+
+            <p>
+              Create your first savings goal.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- RECENT ACTIVITY -->
+
+      <section class="recent-section">
+
+        <div class="section-title">
+
+          <h2>
+            Recent Activity
+          </h2>
+
+          <button id="viewActivityBtn">
+            View All
+          </button>
+
+        </div>
+
+
+        <div id="recentActivity">
+
+          <div class="recent-empty">
+            No activity yet.
+            Add some money to get started.
+          </div>
+
+        </div>
+
+      </section>
+
+    </section>
+
+
+    <!-- =================================
+         GOALS SCREEN
+    ================================== -->
+
+    <section
+      id="goalsScreen"
+      class="app-screen hidden-screen"
+    >
+
+      <div class="page-title">
+
+        <h2>
+          Your Goals
+        </h2>
+
+        <p>
+          Keep track of everything you're saving for.
+        </p>
+
+      </div>
+
+
+      <button
+        id="goalsAddButton"
+        class="big-add-button"
+      >
+        + Create New Goal
+      </button>
+
+
+      <div id="goalsPageList">
+
+        <div class="empty">
+
+          <h3>
+            No goals yet
+          </h3>
+
+          <p>
+            Create a goal to start saving.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         ADD MONEY SCREEN
+    ================================== -->
+
+    <section
+      id="addScreen"
+      class="app-screen hidden-screen"
+    >
+
+      <div class="page-title">
+
+        <h2>
+          Add Money
+        </h2>
+
+        <p>
+          Add money to your SaveUp balance.
+        </p>
+
+      </div>
+
+
+      <button
+        id="openAddMoneyPage"
+        class="big-add-button"
+      >
+        + Add Money
+      </button>
+
+
+      <div class="add-info-card">
+
+        <strong>
+          💰 Keep building
+        </strong>
+
+        <p>
+          Every amount you save gets you closer
+          to your goals.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         SETTINGS / ACTIVITY SCREEN
+    ================================== -->
+
+    <section
+      id="settingsScreen"
+      class="app-screen hidden-screen"
+    >
+
+      <div class="page-title">
+
+        <h2>
+          Activity
+        </h2>
+
+        <p>
+          See your recent SaveUp activity.
+        </p>
+
+      </div>
+
+
+      <div class="settings-card">
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              Savings Activity
+            </strong>
+
+            <p>
+              Your money history
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="historyList"
+        class="history-list"
+      >
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =================================
+       BOTTOM NAVIGATION
+  ================================== -->
+
+  <nav class="bottom-nav">
+
+    <button
+      class="nav-button active"
+      data-screen="homeScreen"
+    >
+
+      <span>
+        🏠
+      </span>
+
+      <small>
+        Home
+      </small>
+
+    </button>
+
+
+    <button
+      class="nav-button"
+      data-screen="goalsScreen"
+    >
+
+      <span>
+        🎯
+      </span>
+
+      <small>
+        Goals
+      </small>
+
+    </button>
+
+
+    <button
+      class="nav-button add-nav"
+      data-screen="addScreen"
+    >
+
+      <span>
+        +
+      </span>
+
+      <small>
+        Add
+      </small>
+
+    </button>
+
+
+    <button
+      class="nav-button"
+      data-screen="settingsScreen"
+    >
+
+      <span>
+        📊
+      </span>
+
+      <small>
+        Activity
+      </small>
+
+    </button>
+
+  </nav>
+
+
+  <!-- =================================
+       CREATE GOAL MODAL
+  ================================== -->
+
+  <div
+    id="goalModal"
+    class="modal hidden"
+  >
+
+    <div class="modal-box">
+
+      <h2>
+        Create Goal
+      </h2>
+
+
+      <input
+        id="goalName"
+        type="text"
+        placeholder="Goal name"
+        maxlength="40"
+      >
+
+
+      <input
+        id="goalAmount"
+        type="number"
+        placeholder="How much do you need?"
+        min="0.01"
+        step="0.01"
+      >
+
+
+      <div class="modal-buttons">
+
+        <button
+          id="cancelGoalBtn"
+          class="secondary"
+        >
+          Cancel
+        </button>
+
+        <button id="saveGoalBtn">
+          Create Goal
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =================================
+       MONEY MODAL
+  ================================== -->
+
+  <div
+    id="moneyModal"
+    class="modal hidden"
+  >
+
+    <div class="modal-box">
+
+      <h2 id="moneyTitle">
+        Add Money
+      </h2>
+
+
+      <input
+        id="moneyAmount"
+        type="number"
+        placeholder="Enter amount"
+        min="0.01"
+        step="0.01"
+      >
+
+
+      <div class="modal-buttons">
+
+        <button
+          id="cancelMoneyBtn"
+          class="secondary"
+        >
+          Cancel
+        </button>
+
+        <button id="confirmMoneyBtn">
+          Add Money
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =================================
+       JAVASCRIPT
+  ================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
